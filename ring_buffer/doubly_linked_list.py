@@ -16,6 +16,7 @@ class ListNode:
         self.next = ListNode(value, self, current_next)
         if current_next:
             current_next.prev = self.next
+        return self.next
 
     """Wrap the given value in a ListNode and insert it
     before this node. Note that this node could already
@@ -61,6 +62,7 @@ class DoublyLinkedList:
             new_node.next = self.head
             self.head.prev = new_node
             self.head = new_node
+        return new_node
 
     """Removes the List's current head node, making the
     current head's next node the new head of the List.
@@ -83,6 +85,7 @@ class DoublyLinkedList:
             new_node.prev = self.tail
             self.tail.next = new_node
             self.tail = new_node
+        return new_node
 
     """Removes the List's current tail node, making the 
     current tail's previous node the new tail of the List.

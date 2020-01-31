@@ -27,6 +27,14 @@ class LinkedList:
     
     self.head = node
 
+  def list_print(self):
+        data = []
+        current = self.head
+        while current is not None:
+            data.append(current.value)
+            current = current.next_node
+        return "[%s]" %(', '.join(str(i) for i in data))
+
   def contains(self, value):
     if not self.head:
       return False
@@ -43,5 +51,13 @@ class LinkedList:
     return False
 
   def reverse_list(self):
-    # TO BE COMPLETED
-    pass
+    prev = None
+    current = self.head
+    nxt = self.head
+    while current:
+      nxt = current.next_node
+      current.set_next(prev)
+      prev = current
+      current = nxt
+    self.head = prev
+    
